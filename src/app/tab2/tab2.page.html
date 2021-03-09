@@ -1,17 +1,89 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
+
+
+<ion-header [translucent]="true" class="ion-no-border" color="transparent">
+  <ion-toolbar color="transparent">
+    <ion-title id="item" color="dark"> 
+      <ion-text color="light"><h1>Clima Actual</h1></ion-text>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 2</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-list *ngIf="!infoCargada" id="item" color="transparent" lines="none">
+  <ion-item id="item" color="transparent">
+    <ion-text color="dark">
+      <p>Utilice el boton inferior "Buscar ciudad" para consultar el clima en determinada zona y guardarla si es su deseo para que en esta pantalla se vea el clima actual</p>
+    </ion-text>
+  </ion-item>
+</ion-list>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+<ion-list *ngIf="loading" id="item" color="transparent" lines="none">
+  <ion-item id="item" color="transparent">
+    <ion-text color="dark">
+      <p>Utilice el boton inferior "Buscar ciudad" para consultar el clima en determinada zona y guardarla si es su deseo para que en esta pantalla se vea el clima actual</p>
+      <p>Utilice el boton inferior "Buscar ciudad" para consultar el clima en determinada zona y guardarla si es su deseo para que en esta pantalla se vea el clima actual</p>
+      <p>Utilice el boton inferior "Buscar ciudad" para consultar el clima en determinada zona y guardarla si es su deseo para que en esta pantalla se vea el clima actual</p>
+      <p>Utilice el boton inferior "Buscar ciudad" para consultar el clima en determinada zona y guardarla si es su deseo para que en esta pantalla se vea el clima actual</p>
+      <p>Utilice el boton inferior "Buscar ciudad" para consultar el clima en determinada zona y guardarla si es su deseo para que en esta pantalla se vea el clima actual</p>
+      <p>Utilice el boton inferior "Buscar ciudad" para consultar el clima en determinada zona y guardarla si es su deseo para que en esta pantalla se vea el clima actual</p>
+    </ion-text>
+  </ion-item>
+</ion-list>
+
+<ion-content [fullscreen]="true" 
+          [ngClass]="{
+            'cieloClaro': tipoClima === 'cielo claro',
+            'nubes': tipoClima === 'nubes',
+            'algoDeNubes': tipoClima === 'algo de nubes',
+            'nubesDispersas': tipoClima === 'nubes dispersas',
+            'muyNuboso': tipoClima === 'muy nuboso',
+            'lluviaLigera': tipoClima === 'lluvia ligera',
+            'lluviaModerada': tipoClima === 'lluvia moderada',
+            'lluviaIntensa': tipoClima === 'lluvia de gran intensidad',
+            'nevadaLigera': tipoClima === 'nevada ligera'
+            }">
+
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)" >
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+<ion-list lines="none" id="item" color="transparent" *ngIf="infoCargada">
+  <ion-row id="item">
+    <ion-item id="item" color="transparent">
+      <ion-text color="light">
+      	<h1 id="item">{{climaObj.lugar}}</h1>
+      </ion-text>
+      <ion-text color="light">
+        <h1 id="item" class="ion-align-self-end">&nbsp;&nbsp;&nbsp;&nbsp;{{climaObj.temperatura}} ºc</h1>
+      </ion-text>
+    </ion-item>
+
+    <ion-item id="item" color="transparent">
+      <ion-text color="light">
+        <h5>Mínima: {{climaObj.min}} ºc</h5>
+      </ion-text>
+    </ion-item>
+
+    <ion-item id="item" color="transparent">
+      <ion-text color="light">
+        <h5>Máxima: {{climaObj.max}} ºc</h5>
+      </ion-text>
+    </ion-item>
+
+    <ion-item id="item" color="transparent">
+      <ion-text color="light">
+        <h5>Humedad: {{climaObj.humedad}} ºc</h5>
+      </ion-text>
+    </ion-item>
+
+    <ion-item id="item" color="transparent">
+      <ion-text color="light">
+        <h5>Estado: {{climaObj.descripcion}}</h5>
+      </ion-text>
+    </ion-item>
+
+  </ion-row>
+</ion-list>
+
+
+
 </ion-content>

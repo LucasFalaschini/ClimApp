@@ -1,17 +1,49 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Consultar clima
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+<ion-content [fullscreen]="true">
+  <ion-list>
+    <form (submit)="submitLocation(cityName, countryCode)">
+    
+      <ion-item>
+        <ion-input type="text" class="from-control" placeholder="Ciudad" #cityName></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" class="from-control" placeholder="País" #countryCode></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label color="medium">¿Guardar esta ciudad?</ion-label>
+        <ion-toggle [(ngModel)]="guardar" [ngModelOptions]="{standalone: true}"></ion-toggle>
+      </ion-item>
+
+      <ion-button expand="full" type="submit" class="ion-align-self-center">Buscar Zona Climatica</ion-button>
+    </form>
+
+
+    <ion-list *ngIf="clima">
+      <ion-item>
+        <h1>{{clima.name}}</h1>
+      </ion-item>
+      <ion-item>
+        <h4>Temperatura actual: {{clima.main.temp}} ºc</h4>
+      </ion-item>
+
+      <ion-row>
+        <ion-item>
+          <ion-col><p>Mínima: {{clima.main.temp_min}} ºc</p></ion-col>
+        </ion-item>
+        <ion-item>
+          <ion-col><p>Máxima: {{clima.main.temp_max}} ºc</p></ion-col>
+        </ion-item>
+      </ion-row>
+
+    </ion-list>
+
+  </ion-list>
 </ion-content>

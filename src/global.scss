@@ -24,3 +24,45 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+
+#titulo {
+    color: aqua;
+}
+
+#item{
+    border-color: rgba(0, 0, 0, 0);
+	background-color: rgba(0, 0, 0, 0);
+}
+
+#lluvia {
+    background-image: url("../src/assets/img/lluvia.jpg");
+}
+
+ion-content.cieloClaro{
+    --background: url(../src/assets/img/cieloClaro.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.nubes{
+    --background: url(../src/assets/img/nubes.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.algoDeNubes{
+    --background: url(../src/assets/img/algoDeNubes.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.nubesDispersas{
+    --background: url(../src/assets/img/nubesDispersas.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.muyNuboso{
+    --background: url(../src/assets/img/muyNuboso.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.lluviaLigera{
+    --background: url(../src/assets/img/lluvia.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.lluviaIntensa{
+    --background: url(../src/assets/img/lluviaIntensa.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.lluviaModerada{
+    --background: url(../src/assets/img/lluviaModerada.jpg) 0 0/100% 100% no-repeat;
+}
+ion-content.nevadaLigera{
+    --background: url(../src/assets/img/nevadaLigera.jpg) 0 0/100% 100% no-repeat;
+}
